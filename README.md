@@ -33,7 +33,7 @@
 目前所有代码使用Visual Studio 2017进行编译，其中Linux平台使用Visual Studio 2017中的交叉编译工具进行编译。
 
 **Linux X86** 平台 **工具链为**：g++ (Ubuntu 7.3.0-27ubuntu1~18.04) 7.3.0  
-**Linux arm** 平台 **工具链为**：arm-linux-gnueabihf-g++ (Linaro GCC 7.3-2018.05) 7.3.1 20180425  
+**Linux arm** 平台 **工具链为**：arm-linux-gnueabihf-g++ (Linaro GCC 7.3-2018.05)  
 
 
 ## 字节码虚拟机实现
