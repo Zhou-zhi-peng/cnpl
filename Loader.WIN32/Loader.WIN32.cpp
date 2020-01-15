@@ -15,7 +15,7 @@ int main()
 	int result = 32;
 	std::fstream in;
 	std::wcout.imbue(std::locale(""));
-	wchar_t moduleName[MAX_PATH] = {0};
+	wchar_t moduleName[MAX_PATH] = { 0 };
 	GetModuleFileNameW(NULL, moduleName, MAX_PATH);
 
 	in.open(moduleName, std::ios::binary | std::ios::in);
@@ -25,7 +25,7 @@ int main()
 		in.seekg(0, std::ios::end);
 		in.seekg(-static_cast<int64_t>(sizeof(offset)), std::ios::cur);
 		in.read((char*)(&offset), sizeof(offset));
-		in.seekg(-static_cast<int64_t>(offset+sizeof(offset)), std::ios::end);
+		in.seekg(-static_cast<int64_t>(offset + sizeof(offset)), std::ios::end);
 		try
 		{
 			VM::Engine engine;
