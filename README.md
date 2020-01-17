@@ -175,6 +175,6 @@
 #### 样例3-贪吃蛇.程序
     典型应用样例
     
-![贪吃蛇截图](https://github.com/Zhou-zhi-peng/cnpl/blob/master/DEMO程序/样例3-贪吃蛇.程序.png "贪吃蛇")
+![贪吃蛇截图](/Zhou-zhi-peng/cnpl/blob/master/DEMO%E7%A8%8B%E5%BA%8F/%E6%A0%B7%E4%BE%8B3-%E8%B4%AA%E5%90%83%E8%9B%87.%E7%A8%8B%E5%BA%8F.png?raw=true "贪吃蛇")
 
 
