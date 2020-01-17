@@ -174,6 +174,7 @@
 
 #### 样例3-贪吃蛇.程序
     典型应用样例
-![blockchain](https://github.com/Zhou-zhi-peng/cnpl/blob/master/DEMO程序/样例3-贪吃蛇.程序.png "贪吃蛇")
+    
+![贪吃蛇截图](https://github.com/Zhou-zhi-peng/cnpl/blob/master/DEMO程序/样例3-贪吃蛇.程序.png "贪吃蛇")
 
 
