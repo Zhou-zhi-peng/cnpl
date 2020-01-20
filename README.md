@@ -33,6 +33,8 @@
 目前所有代码使用Visual Studio 2017进行编译，其中Linux平台使用Visual Studio 2017中的交叉编译工具进行编译。
 
 **Linux X86** 平台 **工具链为**：g++ (Ubuntu 7.3.0-27ubuntu1~18.04) 7.3.0  
+    注：如果编译过程中报找不到库的错误，请尝试安装多平台库,命令：sudo apt-get install g++-multilib
+
 **Linux arm** 平台 **工具链为**：arm-linux-gnueabihf-g++ (Linaro GCC 7.3-2018.05)  
 
 
@@ -126,6 +128,11 @@
         ...
     。
     
+    下列操作执行【数据个数】次，使用计数器【索引】：
+        ...
+        ...
+    。
+
     当【i】小于【n】，执行下列操作：
         ...
         ...
