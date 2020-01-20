@@ -109,6 +109,12 @@ namespace cnpl
                     {
                         Console.Clear();
                         DemoActuator vm = new DemoActuator();
+                        var vargs = new ArrayValue(args.Length, 1);
+                        for(int i=0;i<args.Length;++i)//命令行参数
+                        {
+                            vargs.SetValue(i, 0, new StringValue(args[i]));
+                        }
+                        vm.GVariableTable["命令行参数"] = vargs;
                         ast.Execute(vm);
                     }
                     else
