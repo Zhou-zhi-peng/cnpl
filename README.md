@@ -34,9 +34,10 @@
 
 **Linux X86** 平台 **工具链为**：g++ (Ubuntu 7.3.0-27ubuntu1~18.04) 7.3.0  
     注：如果编译过程中报找不到库的错误，请尝试安装多平台库,命令：sudo apt-get install g++-multilib
+    
+**Linux arm32** 平台 **工具链为**：arm-linux-gnueabihf-g++ (Linaro GCC 7.3-2018.05)  
 
-**Linux arm** 平台 **工具链为**：arm-linux-gnueabihf-g++ (Linaro GCC 7.3-2018.05)  
-
+**Linux arm64** 平台 **工具链为**：aarch64-linux-gnu-g++ (Linaro GCC 7.5-2019.12) 7.5.0  
 
 ## 字节码虚拟机实现
 虚拟机采用堆栈机,内部维护一个**计算栈**和**数据栈**外加一个**IP**寄存器.  
