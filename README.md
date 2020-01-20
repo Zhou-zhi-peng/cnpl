@@ -17,6 +17,12 @@
 #### /lib.import.def
     存储有目标字节码虚拟机宿主函数导入表文件，如果虚拟增加了宿主函数需要修改该文件。
 
+#### /cnpl.linux.vm
+    linux平台单独宿主(C++)
+
+#### /cnpl.win.vm
+    windows平台单独宿主(C++)
+
 #### /Loader.Linux
     Linux平台加载器实现 (C++)
 
