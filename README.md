@@ -84,6 +84,20 @@
         2、注意目标运行平台的CPU位数，windows上64位可以运行32位程序，反之则不行，linux上则64位只能运行64位程序，32位只能运行32程序。
         3、不排除某些BUG造成无法运行，可以尝试多运行几次，如果还是无法运行，则只能从源码将BUG解决后再试，当然也希望能将解决BUG后的代码提交到本项目。
 
+## CNPL 字节码虚拟机命令行说明
+    CNPL提供了各种平台上单独可运行的字节码虚拟机宿主，编译器生成的bin文件可由字节码虚拟机宿主执行
+    命令行格式以linux arm32为例：
+    cnpl.linux.arm32.elf output.bin
+
+    其它平台上换成对应的宿主即可。
+    cnpl.linux.arm32.elf Linux arm32平台
+    cnpl.linux.arm64.elf Linux arm64平台
+    cnpl.linux.x86.elf Linux x86 平台
+    cnpl.linux.x86_64.elf Linux x86_64平台
+    cnpl.win.arm32.exe Windows arm32平台
+    cnpl.win.arm64.exe Windows arm64平台
+    cnpl.win.x86.exe Windows x86平台
+    cnpl.win.x86_64.exe Windows x86_64平台
 
 ## CNPL语法说明
     该项目灵感来自于LingDong大神，他创造了文言文编程语言，于是本项目创造了一门白话文编程语言，语法上与他的文言文编程语言有些类似
