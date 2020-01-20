@@ -10,19 +10,28 @@
 #include "HostCalls.hpp"
 
 static void BindHostCall(VM::Engine& engine);
+#ifdef BYTE_CODE_VM_LOADER
 static std::string GetExeFileName();
+#endif
 
-static const uint8_t byte_code_table[1024] __attribute__((used, section(".byte_code"))) = { 0xDE };
+static std::wstring utf8ToWstring(const std::string& str);
 
-
-int main()
+int main(int argc, char* args[])
 {
 	int result = 32;
 	std::fstream in;
 	std::locale::global(std::locale(""));
 	std::wcout.imbue(std::locale(""));
+#ifdef BYTE_CODE_VM_LOADER
 	auto moduleName = GetExeFileName();
-	//moduleName = wstringToUtf8(L"/mnt/e/Work/myprojects/编译原理DEMO/test.linux.x64.out");
+#else
+	if (argc < 2)
+	{
+		std::cout << "The target program must be specified." << std::endl;
+		return result;
+	}
+	std::string moduleName = args[1];
+#endif
 	int count = 0;
 	do
 	{
@@ -34,16 +43,22 @@ int main()
 
 	if (in.good())
 	{
+#ifdef BYTE_CODE_VM_LOADER
 		uint64_t offset = 0;
 		in.seekg(0, std::ios::end);
 		in.seekg(-static_cast<int64_t>(sizeof(offset)), std::ios::cur);
 		in.read((char*)(&offset), sizeof(offset));
 		in.seekg(-static_cast<int64_t>(offset + sizeof(offset)), std::ios::end);
+#endif
 		try
 		{
 			VM::Engine engine;
 			BindHostCall(engine);
 			engine.LoadProgram(in);
+			auto commandLineArgs = engine.GC().NewArrayValue(argc, 1);
+			for (int i = 0; i < argc; i++)
+				commandLineArgs->SetValue(i, 0, engine.GC().NewStringValue(utf8ToWstring(args[i])));
+			engine.SetGlobalVariable(L"命令行参数", commandLineArgs);
 			result = engine.Run();
 		}
 		catch (VM::Exception& ex)
@@ -60,6 +75,7 @@ int main()
 	return result;
 }
 
+#ifdef BYTE_CODE_VM_LOADER
 static std::string GetExeFileName(void)
 {
 	char path[1024];
@@ -69,6 +85,13 @@ static std::string GetExeFileName(void)
 		return "";
 	}
 	return path;
+}
+#endif
+
+static std::wstring utf8ToWstring(const std::string& str)
+{
+	std::wstring_convert< std::codecvt_utf8<wchar_t> > strCnv;
+	return strCnv.from_bytes(str);
 }
 
 static void BindHostCall(VM::Engine& engine)

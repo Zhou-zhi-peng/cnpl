@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="VM">
+      <UniqueIdentifier>{5102404a-d1ce-4f2f-a0c0-611d88d8f289}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\VM\VM.cpp">
+      <Filter>VM</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Loader.Linux\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\VM\VM.h">
+      <Filter>VM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Loader.Linux\HostCalls.hpp" />
+  </ItemGroup>
+</Project>

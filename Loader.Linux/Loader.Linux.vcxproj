@@ -100,20 +100,20 @@
     <TargetName>link.linux.arm64</TargetName>
     <TargetExt>.Loader</TargetExt>
     <ValidateArchitecture>false</ValidateArchitecture>
-    <RemoteCCompileToolExe>/arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++</RemoteCCompileToolExe>
-    <RemoteCppCompileToolExe>/arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++</RemoteCppCompileToolExe>
+    <RemoteCCompileToolExe>/aarch64-linux-gnu/bin/aarch64-linux-gnu-g++</RemoteCCompileToolExe>
+    <RemoteCppCompileToolExe>/aarch64-linux-gnu/bin/aarch64-linux-gnu-g++</RemoteCppCompileToolExe>
     <MultiProcNumber>10</MultiProcNumber>
-    <RemoteLdToolExe>/arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++</RemoteLdToolExe>
+    <RemoteLdToolExe>/aarch64-linux-gnu/bin/aarch64-linux-gnu-g++</RemoteLdToolExe>
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <TargetName>link.linux.arm64</TargetName>
     <TargetExt>.Loader</TargetExt>
     <ValidateArchitecture>false</ValidateArchitecture>
-    <RemoteCCompileToolExe>/arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++</RemoteCCompileToolExe>
-    <RemoteCppCompileToolExe>/arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++</RemoteCppCompileToolExe>
+    <RemoteCCompileToolExe>/aarch64-linux-gnu/bin/aarch64-linux-gnu-g++</RemoteCCompileToolExe>
+    <RemoteCppCompileToolExe>/aarch64-linux-gnu/bin/aarch64-linux-gnu-g++</RemoteCppCompileToolExe>
     <MultiProcNumber>10</MultiProcNumber>
-    <RemoteLdToolExe>/arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++</RemoteLdToolExe>
+    <RemoteLdToolExe>/aarch64-linux-gnu/bin/aarch64-linux-gnu-g++</RemoteLdToolExe>
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
@@ -147,6 +147,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(ProjectDir);$(RemoteProjectDir)/$(ProjectName);%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BYTE_CODE_VM_LOADER;</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <LibraryDependencies>
@@ -156,6 +157,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(ProjectDir);$(RemoteProjectDir)/$(ProjectName);%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BYTE_CODE_VM_LOADER;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <LibraryDependencies>
@@ -165,6 +167,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(ProjectDir);$(RemoteProjectDir)/$(ProjectName);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BYTE_CODE_VM_LOADER;</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <LibraryDependencies>
@@ -174,6 +177,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(ProjectDir);$(RemoteProjectDir)/$(ProjectName);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BYTE_CODE_VM_LOADER;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <LibraryDependencies>
@@ -183,37 +187,49 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(ProjectDir);$(RemoteProjectDir)/$(ProjectName);%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BYTE_CODE_VM_LOADER;</PreprocessorDefinitions>
+      <AdditionalOptions>-m64 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <LibraryDependencies>
       </LibraryDependencies>
+      <AdditionalOptions>-m64 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(ProjectDir);$(RemoteProjectDir)/$(ProjectName);%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BYTE_CODE_VM_LOADER;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>-m64 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <LibraryDependencies>
       </LibraryDependencies>
+      <AdditionalOptions>-m64 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(ProjectDir);$(RemoteProjectDir)/$(ProjectName);%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BYTE_CODE_VM_LOADER;</PreprocessorDefinitions>
+      <AdditionalOptions>-m32 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <LibraryDependencies>
       </LibraryDependencies>
+      <AdditionalOptions>-m32 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(ProjectDir);$(RemoteProjectDir)/$(ProjectName);%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BYTE_CODE_VM_LOADER;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>-m32 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <LibraryDependencies>
       </LibraryDependencies>
+      <AdditionalOptions>-m32 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

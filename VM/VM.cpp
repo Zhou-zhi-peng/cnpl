@@ -325,6 +325,8 @@ namespace VM
 
 		mCallParameters.clear();
 
+		mGlobalVariableTable.clear();
+
 		mGC.Clean();
 	}
 
