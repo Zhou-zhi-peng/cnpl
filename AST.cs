@@ -793,11 +793,11 @@ namespace cnpl
                 var b = mExpression2.Execute(state);
                 if (a.Is(ValueType.String) || b.Is(ValueType.String))
                 {
-                    return new BooleanValue(a.AsString().Length > b.AsString().Length);
+                    return new BooleanValue(a.AsString().Length < b.AsString().Length);
                 }
                 else if (a.Is(ValueType.Real) || b.Is(ValueType.Real))
                 {
-                    return new BooleanValue(a.AsReal() > b.AsReal());
+                    return new BooleanValue(a.AsReal() < b.AsReal());
                 }
                 return new BooleanValue(a.AsInteger() < b.AsInteger());
             }
